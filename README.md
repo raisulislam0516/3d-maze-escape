@@ -1,6 +1,92 @@
+[README (2).md](https://github.com/user-attachments/files/32566913/README.2.md)
+# 3D Maze Escape & Gem Collector
 
-🎮 3D Maze Escape - PyOpenGL GameA feature-rich 3D action-adventure survival game built entirely in Python using PyOpenGL and GLUT. Players are dropped into a procedurally generated maze where they must navigate deadly environmental hazards, outmaneuver and battle hostile enemy soldiers, collect keys, and reach the exit before the timer runs out.🌟 Key FeaturesProcedural Maze Generation: Built using a Depth-First Search algorithm that creates a randomized layout on every playthrough.   Dual Camera System: Toggle instantly between an immersive First-Person View (FPV) and an overhead Top-Down View.   Real-time Enemy AI & Combat: Battle three distinct classes of enemy soldiers (Pistol, Assault Rifle, Shotgun) featuring patrol paths, line-of-sight detection, strafing movement, bullet spray, and area-of-effect grenade attacks.   Dynamic Traps & Hazards: Dodge swinging pendulums, timed laser barriers, and proximity-triggered floor spikes.   HUD & Interactive Navigation: Features a live 2D minimap showing walls, player position, and exit markers, alongside an interactive compass pointing toward the exit door.   Collectibles & Combo System: Gather 3 keys to unlock the exit door, and collect gems in rapid succession to stack combo score multipliers.   Developer Controls: Built-in God Mode (invincibility and wall clipping) for testing and debugging.   🕹️ Game ControlsKey / InputActionW / SMove Forward / Backward   A / DTurn Left / Right   Left Mouse ClickFire Weapon   VToggle Camera Mode (FPV / Top-Down)   CToggle God Mode (Invincibility & No-Clip)   RReset / Restart Game   🛠️ Requirements & InstallationPrerequisitesMake sure you have Python 3.x installed on your system.DependenciesInstall PyOpenGL and PyOpenGL_accelerate using pip:Bashpip install PyOpenGL PyOpenGL_accelerate
-Running the GameClone the repository:Bashgit clone https://github.com/your-username/3d-maze-escape-opengl.git
-cd 3d-maze-escape-opengl
-Run the script:Bashpython maze_escape.py
-📝 Game Rules & MechanicsObjective: Explore the maze, collect all 3 hidden keys, locate the unlocked Exit Door, and escape within the 150-second time limit.   Combat & Health: Enemy soldiers will engage you on sight. Use your weapon to neutralize them before your health drops to zero.   Traps: Time your movements to pass through laser gates, avoid floor spikes, and clear swinging pendulums without taking damage.   Scoring: Collect gems continuously to build up a combo multiplier and maximize your final score
+A 3D maze-escape survival game built entirely with **Python + PyOpenGL/GLUT** (legacy fixed-function OpenGL, no external game engine). Explore a procedurally-generated hedge maze, collect gems and keys, dodge environmental traps, and fight off enemy soldiers — all before the timer runs out.
+
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![PyOpenGL](https://img.shields.io/badge/PyOpenGL-GLUT-green)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
+---
+
+## Features
+
+- **Procedural 3D maze** — a new hedge-maze layout every time, generated with a recursive-backtracker algorithm
+- **Glowing spinning gems** — collect them for score, chain pickups for combo bonuses
+- **Dual camera view** — switch between First-Person and Overhead views
+- **Key & locked exit door** — find all 3 keys scattered in the maze to unlock the exit
+- **Environmental traps**
+  - Swinging pendulum blades
+  - Timed laser gates (with a warning flash before they activate)
+  - Hidden floor spike traps
+- **Combat system**
+  - Player has a gun (left-click to shoot)
+  - 3 enemy soldier types: **Pistol** (1-hit kill), **Assault** (armored, 3–4 hits), **Shotgun** (throws grenades)
+  - Soldiers patrol, detect the player via line-of-sight, and strafe/move while engaging in combat
+- **Live HUD** — health, countdown timer, gem/key/soldier counters, score, exit compass, and a mini-map
+- **God Mode cheat** — toggle invincibility and no-clip for testing or fun
+- **Garden hedge-maze visual theme** — green hedges, grassy floor, open sky
+
+---
+
+## Controls
+
+| Key / Input | Action |
+|---|---|
+| `W` / `S` | Move forward / backward |
+| `A` / `D` | Turn left / right |
+| **Left Mouse Click** | Fire gun |
+| `V` | Toggle camera view (First-Person / Overhead) |
+| `C` | Toggle God Mode (invincible, no-clip) |
+| `R` | Reset game (generates a new maze) |
+
+---
+
+## Objective
+
+1. Collect the **3 keys** hidden around the maze to unlock the exit door
+2. Grab **gems** along the way for score (chain pickups quickly for combo bonuses)
+3. Avoid or fight through **traps and enemy soldiers**
+4. Reach the exit before the timer runs out and before your health hits zero
+
+---
+
+## Installation & Running
+
+**Requirements:** Python 3.x, PyOpenGL
+
+```bash
+pip install PyOpenGL PyOpenGL_accelerate
+```
+
+> **Windows users:** if you get a GLUT-related error, you may also need `freeglut.dll` available on your system (place it alongside your Python executable or in `System32`).
+
+**Run the game:**
+
+```bash
+python maze_escape.py
+```
+
+---
+
+## Project Structure
+
+```
+maze_escape.py     # entire game (maze generation, rendering, combat, HUD) — single file
+README.md
+```
+
+---
+
+## Tech Notes
+
+- Built using only `OpenGL.GL`, `OpenGL.GLUT`, `OpenGL.GLU`, plus Python's standard `math`, `random`, and `time` modules — no external game engine or assets
+- Uses immediate-mode OpenGL rendering (`glBegin`/`glEnd`, `glutSolidCube`, `gluSphere`, `gluCylinder`) — no shaders or textures
+- Maze generated via a recursive-backtracker algorithm
+- Simple AABB-based collision detection for walls, doors, and entities
+
+---
+
+## License
+
+This project is open-sourced under the MIT License — feel free to fork, modify, and build on it.
