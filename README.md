@@ -1,4 +1,4 @@
-[README (2).md](https://github.com/user-attachments/files/32566913/README.2.md)
+
 # 3D Maze Escape & Gem Collector
 
 A 3D maze-escape survival game built entirely with **Python + PyOpenGL/GLUT** (legacy fixed-function OpenGL, no external game engine). Explore a procedurally-generated hedge maze, collect gems and keys, dodge environmental traps, and fight off enemy soldiers — all before the timer runs out.
